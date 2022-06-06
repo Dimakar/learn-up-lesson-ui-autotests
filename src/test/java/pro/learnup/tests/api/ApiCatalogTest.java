@@ -1,21 +1,18 @@
 package pro.learnup.tests.api;
 
-import io.qameta.allure.junit5.AllureJunit5;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import pro.learnup.api.dto.PhoneDto;
 import pro.learnup.api.endpoints.ApiCatalogEndpoint;
 import pro.learnup.extensions.ApiTest;
-import pro.learnup.extensions.ApiTestExtension;
 import pro.learnup.testdata.DbTestDataHelper;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("/api/catalog")
+@DisplayName("/api/catalog: Получение списка смартфонов")
 @ApiTest
 public class ApiCatalogTest {
     List<PhoneDto> phoneDtoList;
@@ -26,7 +23,7 @@ public class ApiCatalogTest {
     }
 
     @Test
-    @DisplayName("/api/catalog: 200, получение телефонов без авторизации")
+    @DisplayName("/api/catalog: 200, получение смартфонов без авторизации")
     void getCatalogTest() {
         assertThat(new ApiCatalogEndpoint().getAllPhones())
                 .containsExactlyInAnyOrderElementsOf(phoneDtoList);

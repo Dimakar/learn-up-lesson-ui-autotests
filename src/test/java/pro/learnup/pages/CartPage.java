@@ -7,21 +7,22 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 @Page(url = "/cart")
 public class CartPage extends BasePage {
 
     private SelenideElement checkOutButton = $(By.xpath("//button[.='Checkout']"));
     private SelenideElement confirmButton = $(By.xpath("//button[.='Confirm']"));
-    
-    @Step("Проверить, что в корзине только телефоны {phoneName}")
+
+    @Step("Проверить, что в корзине только смартфоны {phoneName}")
     public CartPage checkCartContainExactly(String... phoneName) {
         $(By.className("cart-items")).$$x(".//table//tbody/tr//a")
                 .shouldHave(CollectionCondition.exactTextsCaseSensitiveInAnyOrder(phoneName));
         return this;
     }
+
     @Step("Нажать на кнопку CheckOut")
     public CartPage clickCheckOut() {
         checkOutButton.click();

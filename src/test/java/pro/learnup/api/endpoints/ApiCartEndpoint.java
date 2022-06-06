@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 @Endpoint("/api/cart")
 public class ApiCartEndpoint extends BaseEndpoint {
 
-    @Step("{this.endpoint}: Получение корзины")
+    @Step("{this.endpoint}: GET: 200: Получение корзины")
     public CartDto getCart(User user) {
         return given()
                 .header(user.getAuthHeader())

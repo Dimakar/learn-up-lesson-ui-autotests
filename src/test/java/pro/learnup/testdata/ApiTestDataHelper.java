@@ -23,7 +23,7 @@ public class ApiTestDataHelper {
         User user = User.builder().login(faker.name().fullName())
                 .password(faker.internet().password())
                 .build();
-        UserDto userDto =  new ApiAuthRegisterEndpoint().registerNewUser(
+        UserDto userDto = new ApiAuthRegisterEndpoint().registerNewUser(
                 UserDto.builder()
                         .address(faker.address().fullAddress())
                         .phone(faker.phoneNumber().phoneNumber())

@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderRequestDto{
+public class OrderRequestDto {
 
-	@JsonProperty("order")
-	private Order order;
+    @JsonProperty("order")
+    private Order order;
 }

@@ -10,7 +10,8 @@ import pro.learnup.pages.elements.Button;
 import pro.learnup.testdata.User;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class HeaderBlock {
 

@@ -12,7 +12,7 @@ import java.util.List;
 import static pro.learnup.db.MongoConnector.getDataBase;
 
 public class DbTestDataHelper {
-    @Step("Получить в БД все телефоны")
+    @Step("Получить в БД все смартфоны")
     public static List<PhoneDto> getAllPhones() {
         List<PhoneDto> phoneDtoList = new ArrayList<>();
         return getDataBase().getCollection("products", PhoneDto.class).find().into(phoneDtoList);

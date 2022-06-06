@@ -1,18 +1,12 @@
 package pro.learnup.tests.ui;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.junit5.AllureJunit5;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import pro.learnup.api.dto.PhoneDto;
 import pro.learnup.extensions.UiTest;
-import pro.learnup.extensions.UiTestsExt;
 import pro.learnup.pages.PhonesPage;
 import pro.learnup.testdata.ApiTestDataHelper;
 import pro.learnup.testdata.DbTestDataHelper;
@@ -32,7 +26,7 @@ public class AuthTest {
     }
 
     @Severity(SeverityLevel.BLOCKER)
-    @DisplayName("Авторизация пользователя")
+    @DisplayName("Успешная авторизация пользователя")
     @Test
     public void authTest() {
         open("/", PhonesPage.class)

@@ -13,14 +13,14 @@ import pro.learnup.testdata.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("/api/user")
+@DisplayName("/api/user: Пользователи")
 @ApiTest
 public class ApiUserTest {
     UserDto userDto;
 
     @BeforeEach
     void setUp() {
-        userDto = ApiTestDataHelper.createTestUserDto();;
+        userDto = ApiTestDataHelper.createTestUserDto();
     }
 
     @Test

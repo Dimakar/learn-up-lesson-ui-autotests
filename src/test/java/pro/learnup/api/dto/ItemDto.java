@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pro.learnup.api.dto.PhoneDto;
 
 @Data
 @Builder
@@ -13,12 +12,12 @@ import pro.learnup.api.dto.PhoneDto;
 @AllArgsConstructor
 public class ItemDto {
 
-	@JsonProperty("product")
-	private PhoneDto product;
+    @JsonProperty("product")
+    private PhoneDto product;
 
-	@JsonProperty("quantity")
-	private int quantity;
+    @JsonProperty("quantity")
+    private int quantity;
 
-	@JsonProperty("_id")
-	private String id;
+    @JsonProperty("_id")
+    private String id;
 }

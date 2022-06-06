@@ -16,19 +16,19 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order{
+public class Order {
 
-	@JsonSerialize(using = LocalDateTimeSerializer.class)
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
-	@JsonProperty("dateCreated")
-	private LocalDateTime dateCreated;
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonProperty("dateCreated")
+    private LocalDateTime dateCreated;
 
-	@JsonProperty("quantity")
-	private int quantity;
+    @JsonProperty("quantity")
+    private int quantity;
 
-	@JsonProperty("price")
-	private int price;
+    @JsonProperty("price")
+    private int price;
 
-	@JsonProperty("name")
-	private String name;
+    @JsonProperty("name")
+    private String name;
 }

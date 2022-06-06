@@ -10,35 +10,35 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tags{
+public class Tags {
 
-	@JsonProperty("color")
-	private String color;
+    @JsonProperty("color")
+    private String color;
 
-	@JsonProperty("os")
-	private String os;
+    @JsonProperty("os")
+    private String os;
 
-	@JsonProperty("displayResolution")
-	private String displayResolution;
+    @JsonProperty("displayResolution")
+    private String displayResolution;
 
-	@JsonProperty("cpu")
-	private String cpu;
+    @JsonProperty("cpu")
+    private String cpu;
 
-	@JsonProperty("internalMemory")
-	private String internalMemory;
+    @JsonProperty("internalMemory")
+    private String internalMemory;
 
-	@JsonProperty("camera")
-	private String camera;
+    @JsonProperty("camera")
+    private String camera;
 
-	@JsonProperty("priceRange")
-	private String priceRange;
+    @JsonProperty("priceRange")
+    private String priceRange;
 
-	@JsonProperty("brand")
-	private String brand;
+    @JsonProperty("brand")
+    private String brand;
 
-	@JsonProperty("displaySize")
-	private String displaySize;
+    @JsonProperty("displaySize")
+    private String displaySize;
 
-	@JsonProperty("ram")
-	private String ram;
+    @JsonProperty("ram")
+    private String ram;
 }

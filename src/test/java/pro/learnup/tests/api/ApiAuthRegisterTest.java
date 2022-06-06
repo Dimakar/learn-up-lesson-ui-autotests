@@ -16,9 +16,10 @@ import pro.learnup.testdata.DbTestDataHelper;
 
 import java.util.stream.Stream;
 
+import static io.qameta.allure.Allure.parameter;
 import static io.restassured.RestAssured.given;
 
-@DisplayName("/api/auth/register")
+@DisplayName("/api/auth/register: Регистрация нового пользователя")
 @ApiTest
 public class ApiAuthRegisterTest {
     static Faker faker = new Faker();
@@ -39,10 +40,21 @@ public class ApiAuthRegisterTest {
         );
     }
 
+    public static Stream<UserDto> failedCreateUserRequests() {
+        return Stream.of(UserDto.builder()
+                        .password(faker.internet().password())
+                        .build(),
+                UserDto.builder()
+                        .username(faker.name().fullName())
+                        .build()
+        );
+    }
+
     @ParameterizedTest
     @DisplayName("/api/auth/register: 201: успешное создание юзера")
     @MethodSource("successfulCreateUserRequests")
     void createUserTest(UserDto userDto) {
+        parameter("Юзер", userDto);
         this.userDto = new ApiAuthRegisterEndpoint().registerNewUser(userDto);
 
         SoftAssertions softAssertions = new SoftAssertions();
@@ -58,21 +70,11 @@ public class ApiAuthRegisterTest {
         softAssertions.assertAll();
     }
 
-
-    public static Stream<UserDto> failedCreateUserRequests() {
-        return Stream.of(UserDto.builder()
-                        .password(faker.internet().password())
-                        .build(),
-                UserDto.builder()
-                        .username(faker.name().fullName())
-                        .build()
-        );
-    }
-
     @ParameterizedTest
     @DisplayName("/api/auth/register: 400: неуспешное создание юзера")
     @MethodSource("failedCreateUserRequests")
     void failedCreateUser400Test(UserDto userDto) {
+        parameter("Юзер", userDto);
         given()
                 .body(userDto)
                 .post(new ApiAuthRegisterEndpoint().getEndpoint())

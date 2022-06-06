@@ -11,14 +11,14 @@ import org.bson.types.ObjectId;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhoneDto{
+public class PhoneDto {
 
-	@JsonProperty("_id")
-	private ObjectId id;
+    @JsonProperty("_id")
+    private ObjectId id;
 
-	@JsonProperty("info")
-	private Info info;
+    @JsonProperty("info")
+    private Info info;
 
-	@JsonProperty("tags")
-	private Tags tags;
+    @JsonProperty("tags")
+    private Tags tags;
 }

@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 @Endpoint("/api/auth/register")
 public class ApiAuthRegisterEndpoint extends BaseEndpoint {
 
-    @Step("{this.endpoint}: Регистрация нового юзера {userDto.username}")
+    @Step("{this.endpoint}: POST: 201: Успешная регистрация нового юзера {userDto.username}")
     public UserDto registerNewUser(UserDto userDto) {
         return given()
                 .body(userDto)

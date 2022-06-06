@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.page;
 @Page(url = "/")
 public class PhonesPage extends BasePage {
 
-    @Step("Выбрать телефон {phoneName}")
+    @Step("Выбрать смартфон {phoneName}")
     public PhonePage selectPhone(String phoneName) {
         ElementsCollection phones = $$(By.className("product"));
         phones.stream()

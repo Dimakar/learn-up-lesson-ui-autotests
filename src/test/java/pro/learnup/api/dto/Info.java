@@ -10,50 +10,50 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Info{
+public class Info {
 
-	@JsonProperty("os")
-	private String os;
+    @JsonProperty("os")
+    private String os;
 
-	@JsonProperty("color")
-	private String color;
+    @JsonProperty("color")
+    private String color;
 
-	@JsonProperty("displayResolution")
-	private String displayResolution;
+    @JsonProperty("displayResolution")
+    private String displayResolution;
 
-	@JsonProperty("weight")
-	private String weight;
+    @JsonProperty("weight")
+    private String weight;
 
-	@JsonProperty("cpu")
-	private String cpu;
+    @JsonProperty("cpu")
+    private String cpu;
 
-	@JsonProperty("photo")
-	private String photo;
+    @JsonProperty("photo")
+    private String photo;
 
-	@JsonProperty("internalMemory")
-	private String internalMemory;
+    @JsonProperty("internalMemory")
+    private String internalMemory;
 
-	@JsonProperty("displaySize")
-	private String displaySize;
+    @JsonProperty("displaySize")
+    private String displaySize;
 
-	@JsonProperty("displayType")
-	private String displayType;
+    @JsonProperty("displayType")
+    private String displayType;
 
-	@JsonProperty("price")
-	private int price;
+    @JsonProperty("price")
+    private int price;
 
-	@JsonProperty("name")
-	private String name;
+    @JsonProperty("name")
+    private String name;
 
-	@JsonProperty("camera")
-	private String camera;
+    @JsonProperty("camera")
+    private String camera;
 
-	@JsonProperty("dimensions")
-	private String dimensions;
+    @JsonProperty("dimensions")
+    private String dimensions;
 
-	@JsonProperty("ram")
-	private String ram;
+    @JsonProperty("ram")
+    private String ram;
 
-	@JsonProperty("batery")
-	private String batery;
+    @JsonProperty("batery")
+    private String batery;
 }

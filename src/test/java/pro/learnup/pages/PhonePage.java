@@ -7,20 +7,18 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @Page(url = "/product/{0}")
 public class PhonePage extends BasePage {
 
     private SelenideElement addToCartButton = $(By.xpath("//button[.='Add to cart']"));
 
-    
 
     @Step("Проверить, что открыта страница {phoneName}")
     public PhonePage checkPhoneName(String phoneName) {
         $(By.cssSelector(".product-details-container h1"))
                 .shouldBe(and("Exact text", visible, exactText(phoneName))
-                        .because("Должна открыться страница с телефоном " + phoneName));
+                        .because("Должна открыться страница с смартфоном " + phoneName));
         return this;
     }
 
@@ -30,9 +28,9 @@ public class PhonePage extends BasePage {
         return this;
     }
 
-    @Step("Нажать на кнопку Add to Cart")
-    public PhonePage checkSuccessfulPhoneAddedToCart() {
-        $(byText("Item added to your cart.")).shouldBe(visible);
+    @Step("Проверить, что отобразился сообщение с текстом ")
+    public PhonePage checkAlert(String text) {
+        $(byText(text)).shouldBe(visible);
         return this;
     }
 

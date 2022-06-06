@@ -21,9 +21,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static io.qameta.allure.Allure.parameter;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("/api/order")
+@DisplayName("/api/order: Оформление заказа")
 @ApiTest
 public class ApiOrderTest {
     static User user;
@@ -34,19 +35,25 @@ public class ApiOrderTest {
         user = ApiTestDataHelper.createTestUser();
     }
 
+    public static Stream<PhoneDto> phones() {
+        return new ApiCatalogEndpoint().getAllPhones().stream();
+    }
+
+    @AfterAll
+    static void tearDown() {
+        DbTestDataHelper.deleteUser(user.getId());
+    }
+
     @BeforeEach
     void setUp() {
         orders = new ApiUserEndpoint().getUser(ApiOrderTest.user).getOrders();
-    }
-
-    public static Stream<PhoneDto> phones() {
-        return new ApiCatalogEndpoint().getAllPhones().stream();
     }
 
     @DisplayName("/api/order: 200: успешное оформление заказа")
     @ParameterizedTest
     @MethodSource("phones")
     void apiOrderSuccessfulTest(PhoneDto phoneDto) {
+        parameter("Модель смартфона", phoneDto.getInfo().getName());
         Order expectedOrder = Order.builder()
                 .dateCreated(LocalDateTime.now())
                 .name(phoneDto.getInfo().getName())
@@ -62,10 +69,5 @@ public class ApiOrderTest {
         assertThat(new ApiUserEndpoint().getUser(user).getOrders())
                 .as("У юзера добавился еще один заказ")
                 .containsExactlyInAnyOrderElementsOf(orders);
-    }
-
-    @AfterAll
-    static void tearDown() {
-        DbTestDataHelper.deleteUser(user.getId());
     }
 }

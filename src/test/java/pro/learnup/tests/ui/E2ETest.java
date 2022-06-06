@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pro.learnup.api.dto.PhoneDto;
-import pro.learnup.api.dto.UserDto;
 import pro.learnup.extensions.UiTest;
 import pro.learnup.pages.PhonesPage;
 import pro.learnup.testdata.ApiTestDataHelper;
@@ -15,9 +14,8 @@ import pro.learnup.testdata.DbTestDataHelper;
 import pro.learnup.testdata.User;
 
 import static com.codeborne.selenide.Selenide.open;
-import static io.qameta.allure.Allure.parameter;
 
-@DisplayName("Покупка телефона")
+@DisplayName("Покупка смартфона")
 @UiTest
 public class E2ETest {
     User user;
@@ -30,7 +28,7 @@ public class E2ETest {
     }
 
     @Severity(SeverityLevel.BLOCKER)
-    @DisplayName("Покупка телефона")
+    @DisplayName("Покупка смартфона")
     @Test
     public void buyPhoneTest() {
         open("/", PhonesPage.class)

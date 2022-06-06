@@ -1,6 +1,8 @@
 package pro.learnup.tests.ui;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pro.learnup.api.dto.ItemDto;
 import pro.learnup.api.dto.PhoneDto;
@@ -12,38 +14,57 @@ import pro.learnup.testdata.User;
 
 import java.util.List;
 
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pro.learnup.steps.UiSteps.openPage;
 import static pro.learnup.testdata.ApiTestDataHelper.createTestUser;
 
 @UiTest
+@DisplayName("Добавление товара в корзину")
 public class AddToCartTest {
-    User user;
-    PhoneDto phoneDto;
+    static User user;
+    static PhoneDto phoneDto;
 
-    @BeforeEach
-    void setUp() {
+    @BeforeAll
+    static void setUp() {
         user = createTestUser();
         phoneDto = DbTestDataHelper.getAllPhones().get(0);
     }
 
+    @AfterAll
+    static void tearDown() {
+        DbTestDataHelper.deleteUser(user.getId());
+    }
+
     @Test
+    @DisplayName("Успешное добавление товара в корзину авторизованным пользователем")
     void addToCartTest() {
         openPage(user, PhonesPage.class)
                 .selectPhone(phoneDto.getInfo().getName())
                 .checkPhoneName(phoneDto.getInfo().getName())
                 .clickAddToCart()
-                .checkSuccessfulPhoneAddedToCart();
+                .checkAlert("Item added to your cart.");
 
-        List<ItemDto> items = new ApiCartEndpoint().getCart(user).getItems();
+        step("Проверить через API, что смартфон добавлен в корзину", () -> {
+            List<ItemDto> items = new ApiCartEndpoint().getCart(user).getItems();
+            assertThat(items).hasSize(1);
+            assertThat(items.get(0))
+                    .usingRecursiveComparison()
+                    .ignoringFields("id")
+                    .isEqualTo(ItemDto.builder()
+                            .product(phoneDto)
+                            .quantity(1)
+                            .build());
+        });
+    }
 
-        assertThat(items).hasSize(1);
-        assertThat(items.get(0))
-                .usingRecursiveComparison()
-                .ignoringFields("id")
-                .isEqualTo(ItemDto.builder()
-                        .product(phoneDto)
-                        .quantity(1)
-                        .build());
+    @Test
+    @DisplayName("Ошибка при добавлении товара в корзину неавторизованным пользователем")
+    void addToCartByNotAuthTest() {
+        openPage(PhonesPage.class)
+                .selectPhone(phoneDto.getInfo().getName())
+                .checkPhoneName(phoneDto.getInfo().getName())
+                .clickAddToCart()
+                .checkAlert("You must be logged in!");
     }
 }

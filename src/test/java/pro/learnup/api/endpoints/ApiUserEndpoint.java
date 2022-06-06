@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 @Endpoint("/api/user")
 public class ApiUserEndpoint extends BaseEndpoint {
 
-    @Step("{this.endpoint}: Получении информации об юзера {userDto.username}")
+    @Step("{this.endpoint}: GET: 200: Получении информации об юзера {userDto.username}")
     public UserDto getUser(User user) {
         return given()
                 .header(user.getAuthHeader())
