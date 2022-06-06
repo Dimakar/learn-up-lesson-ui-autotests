@@ -1,5 +1,6 @@
 package pro.learnup.tests.ui;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +21,8 @@ import static pro.learnup.steps.UiSteps.openPage;
 import static pro.learnup.testdata.ApiTestDataHelper.createTestUser;
 
 @UiTest
-@DisplayName("Добавление товара в корзину")
+@Feature("Покупка смартфона")
+@DisplayName("Добавление смартфона в корзину")
 public class AddToCartTest {
     static User user;
     static PhoneDto phoneDto;
@@ -37,7 +39,7 @@ public class AddToCartTest {
     }
 
     @Test
-    @DisplayName("Успешное добавление товара в корзину авторизованным пользователем")
+    @DisplayName("Успешное добавление смартфона в корзину авторизованным пользователем")
     void addToCartTest() {
         openPage(user, PhonesPage.class)
                 .selectPhone(phoneDto.getInfo().getName())

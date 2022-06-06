@@ -1,5 +1,6 @@
 package pro.learnup.tests.api;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Feature("Покупка смартфона")
 @DisplayName("/api/catalog: Получение списка смартфонов")
 @ApiTest
 public class ApiCatalogTest {

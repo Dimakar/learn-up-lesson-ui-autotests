@@ -1,5 +1,6 @@
 package pro.learnup.tests.ui;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.AfterEach;
@@ -16,6 +17,7 @@ import pro.learnup.testdata.User;
 import static com.codeborne.selenide.Selenide.open;
 
 @DisplayName("Покупка смартфона")
+@Feature("Покупка смартфона")
 @UiTest
 public class E2ETest {
     User user;

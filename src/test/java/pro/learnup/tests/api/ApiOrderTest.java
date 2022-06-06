@@ -1,5 +1,6 @@
 package pro.learnup.tests.api;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,7 @@ import static io.qameta.allure.Allure.parameter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("/api/order: Оформление заказа")
+@Feature("Покупка смартфона")
 @ApiTest
 public class ApiOrderTest {
     static User user;

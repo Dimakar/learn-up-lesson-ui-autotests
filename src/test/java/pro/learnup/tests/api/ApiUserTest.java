@@ -1,5 +1,6 @@
 package pro.learnup.tests.api;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ import pro.learnup.testdata.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Feature("Пользователи")
 @DisplayName("/api/user: Пользователи")
 @ApiTest
 public class ApiUserTest {

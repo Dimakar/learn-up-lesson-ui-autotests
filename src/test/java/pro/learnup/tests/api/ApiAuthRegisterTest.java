@@ -1,6 +1,7 @@
 package pro.learnup.tests.api;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Feature;
 import org.assertj.core.api.SoftAssertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
@@ -19,6 +20,7 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.parameter;
 import static io.restassured.RestAssured.given;
 
+@Feature("Пользователи")
 @DisplayName("/api/auth/register: Регистрация нового пользователя")
 @ApiTest
 public class ApiAuthRegisterTest {
