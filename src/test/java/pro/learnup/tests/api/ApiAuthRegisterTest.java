@@ -2,6 +2,7 @@ package pro.learnup.tests.api;
 
 import com.github.javafaker.Faker;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.assertj.core.api.SoftAssertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
@@ -98,6 +99,7 @@ public class ApiAuthRegisterTest {
     }
 
     @AfterEach
+    @Step("Удаление ТД")
     void tearDown() {
         DbTestDataHelper.deleteUser(userDto);
     }

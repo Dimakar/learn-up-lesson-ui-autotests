@@ -1,6 +1,7 @@
 package pro.learnup.tests.ui;
 
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -28,12 +29,14 @@ public class AddToCartTest {
     static PhoneDto phoneDto;
 
     @BeforeAll
+    @Step("Подготовка ТД")
     static void setUp() {
         user = createTestUser();
         phoneDto = DbTestDataHelper.getAllPhones().get(0);
     }
 
     @AfterAll
+    @Step("Удаление ТД")
     static void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }

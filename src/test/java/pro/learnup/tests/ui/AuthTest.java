@@ -3,6 +3,7 @@ package pro.learnup.tests.ui;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,6 +24,7 @@ public class AuthTest {
     User user;
 
     @BeforeEach
+    @Step("Подготовка ТД")
     void setUp() {
         user = ApiTestDataHelper.createTestUser();
     }
@@ -37,6 +39,7 @@ public class AuthTest {
     }
 
     @AfterEach
+    @Step("Удаление ТД")
     void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }

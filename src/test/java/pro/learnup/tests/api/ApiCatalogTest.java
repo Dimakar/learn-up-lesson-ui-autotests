@@ -1,6 +1,7 @@
 package pro.learnup.tests.api;
 
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ public class ApiCatalogTest {
     List<PhoneDto> phoneDtoList;
 
     @BeforeEach
+    @Step("Подготовка ТД")
     void setUp() {
         phoneDtoList = DbTestDataHelper.getAllPhones();
     }

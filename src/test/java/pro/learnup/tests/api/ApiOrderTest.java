@@ -1,6 +1,7 @@
 package pro.learnup.tests.api;
 
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.parameter;
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("/api/order: Оформление заказа")
@@ -33,6 +35,7 @@ public class ApiOrderTest {
     List<Order> orders;
 
     @BeforeAll
+    @Step("Подготовка ТД")
     static void beforeAll() {
         user = ApiTestDataHelper.createTestUser();
     }
@@ -42,11 +45,13 @@ public class ApiOrderTest {
     }
 
     @AfterAll
+    @Step("Удаление ТД")
     static void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }
 
     @BeforeEach
+    @Step("Подготовка ТД")
     void setUp() {
         orders = new ApiUserEndpoint().getUser(ApiOrderTest.user).getOrders();
     }
@@ -57,7 +62,7 @@ public class ApiOrderTest {
     void apiOrderSuccessfulTest(PhoneDto phoneDto) {
         parameter("Модель смартфона", phoneDto.getInfo().getName());
         Order expectedOrder = Order.builder()
-                .dateCreated(LocalDateTime.now())
+                .dateCreated(LocalDateTime.now().withNano(0))
                 .name(phoneDto.getInfo().getName())
                 .price(phoneDto.getInfo().getPrice())
                 .quantity(1)
@@ -68,8 +73,9 @@ public class ApiOrderTest {
                 .build());
 
         orders.add(expectedOrder);
-        assertThat(new ApiUserEndpoint().getUser(user).getOrders())
-                .as("У юзера добавился еще один заказ")
-                .containsExactlyInAnyOrderElementsOf(orders);
+        step("Проверить через API, что ордер появился в списке у юзера", () ->
+                assertThat(new ApiUserEndpoint().getUser(user).getOrders())
+                        .as("У юзера добавился еще один заказ")
+                        .containsExactlyInAnyOrderElementsOf(orders));
     }
 }

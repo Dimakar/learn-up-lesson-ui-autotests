@@ -28,7 +28,7 @@ public class PhonePage extends BasePage {
         return this;
     }
 
-    @Step("Проверить, что отобразился сообщение с текстом ")
+    @Step("Проверить, что отобразился сообщение с текстом {text}")
     public PhonePage checkAlert(String text) {
         $(byText(text)).shouldBe(visible);
         return this;
