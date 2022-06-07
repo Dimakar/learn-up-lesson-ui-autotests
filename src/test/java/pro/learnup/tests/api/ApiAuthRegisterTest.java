@@ -54,12 +54,11 @@ public class ApiAuthRegisterTest {
         );
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "/api/auth/register: 201: успешное создание юзера с различными параметрами")
     @AllureId("743")
     @DisplayName("/api/auth/register: 201: успешное создание юзера")
     @MethodSource("successfulCreateUserRequests")
     void createUserTest(UserDto userDto) {
-        parameter("Юзер", userDto);
         this.userDto = new ApiAuthRegisterEndpoint().registerNewUser(userDto);
 
         SoftAssertions softAssertions = new SoftAssertions();
@@ -75,12 +74,11 @@ public class ApiAuthRegisterTest {
         softAssertions.assertAll();
     }
 
-    @ParameterizedTest(name = "/api/auth/register: 400: неуспешное создание юзера")
+    @ParameterizedTest(name = "/api/auth/register: 400: неуспешное создание юзера с различными параметрами")
     @AllureId("741")
     @DisplayName("/api/auth/register: 400: неуспешное создание юзера")
     @MethodSource("failedCreateUserRequests")
     void failedCreateUser400Test(UserDto userDto) {
-        parameter("Юзер", userDto);
         given()
                 .body(userDto)
                 .post(new ApiAuthRegisterEndpoint().getEndpoint())
