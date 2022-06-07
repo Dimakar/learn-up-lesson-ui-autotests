@@ -58,11 +58,11 @@ public class ApiOrderTest {
     }
 
     @DisplayName("/api/order: 200: успешное оформление заказа")
-    @ParameterizedTest
+    @ParameterizedTest(name = "/api/order: 200: успешное оформление заказа")
     @AllureId("746")
     @MethodSource("phones")
     void apiOrderSuccessfulTest(PhoneDto phoneDto) {
-        parameter("Модель смартфона", phoneDto.getInfo().getName());
+//        parameter("Модель смартфона", phoneDto.getInfo().getName());
         Order expectedOrder = Order.builder()
                 .dateCreated(LocalDateTime.now().withNano(0))
                 .name(phoneDto.getInfo().getName())
