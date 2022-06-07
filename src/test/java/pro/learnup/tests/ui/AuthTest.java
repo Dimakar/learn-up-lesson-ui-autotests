@@ -1,5 +1,6 @@
 package pro.learnup.tests.ui;
 
+import io.qameta.allure.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;

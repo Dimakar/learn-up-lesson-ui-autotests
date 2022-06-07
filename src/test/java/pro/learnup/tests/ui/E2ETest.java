@@ -1,9 +1,6 @@
 package pro.learnup.tests.ui;
 
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -34,6 +31,7 @@ public class E2ETest {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Покупка смартфона")
     @Test
+    @AllureId("751")
     public void buyPhoneTest() {
         open("/", PhonesPage.class)
                 .getHeaderBlock()

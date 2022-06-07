@@ -1,6 +1,7 @@
 package pro.learnup.tests.api;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.assertj.core.api.SoftAssertions;
@@ -54,6 +55,7 @@ public class ApiAuthRegisterTest {
     }
 
     @ParameterizedTest
+    @AllureId("743")
     @DisplayName("/api/auth/register: 201: успешное создание юзера")
     @MethodSource("successfulCreateUserRequests")
     void createUserTest(UserDto userDto) {
@@ -73,7 +75,8 @@ public class ApiAuthRegisterTest {
         softAssertions.assertAll();
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "/api/auth/register: 400: неуспешное создание юзера")
+    @AllureId("741")
     @DisplayName("/api/auth/register: 400: неуспешное создание юзера")
     @MethodSource("failedCreateUserRequests")
     void failedCreateUser400Test(UserDto userDto) {
@@ -86,6 +89,7 @@ public class ApiAuthRegisterTest {
     }
 
     @Test
+    @AllureId("742")
     @DisplayName("/api/auth/register: 409: User already exists")
     void failedCreateUser409Test() {
         userDto = ApiTestDataHelper.createTestUserDto();

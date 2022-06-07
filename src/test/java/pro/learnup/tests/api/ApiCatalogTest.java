@@ -1,5 +1,6 @@
 package pro.learnup.tests.api;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +28,7 @@ public class ApiCatalogTest {
     }
 
     @Test
+    @AllureId("744")
     @DisplayName("/api/catalog: 200, получение смартфонов без авторизации")
     void getCatalogTest() {
         assertThat(new ApiCatalogEndpoint().getAllPhones())

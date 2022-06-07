@@ -1,5 +1,6 @@
 package pro.learnup.tests.api;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterAll;
@@ -58,6 +59,7 @@ public class ApiOrderTest {
 
     @DisplayName("/api/order: 200: успешное оформление заказа")
     @ParameterizedTest
+    @AllureId("746")
     @MethodSource("phones")
     void apiOrderSuccessfulTest(PhoneDto phoneDto) {
         parameter("Модель смартфона", phoneDto.getInfo().getName());

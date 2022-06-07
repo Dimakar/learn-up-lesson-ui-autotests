@@ -1,5 +1,6 @@
 package pro.learnup.tests.ui;
 
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterAll;
@@ -64,6 +65,7 @@ public class AddToCartTest {
     }
 
     @Test
+    @AllureId("750")
     @DisplayName("Ошибка при добавлении товара в корзину неавторизованным пользователем")
     void addToCartByNotAuthTest() {
         openPage(PhonesPage.class)
