@@ -30,21 +30,19 @@ public class AddToCartTest {
     static PhoneDto phoneDto;
 
     @BeforeAll
-    @Step("Подготовка ТД")
     static void setUp() {
         user = createTestUser();
         phoneDto = DbTestDataHelper.getAllPhones().get(0);
     }
 
     @AfterAll
-    @Step("Удаление ТД")
     static void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }
 
     @Test
     @DisplayName("Успешное добавление смартфона в корзину авторизованным пользователем")
-    void addToCartTest() {
+    void addToCartSuccessfulTest() {
         openPage(user, PhonesPage.class)
                 .selectPhone(phoneDto.getInfo().getName())
                 .checkPhoneName(phoneDto.getInfo().getName())
@@ -65,9 +63,8 @@ public class AddToCartTest {
     }
 
     @Test
-    
     @DisplayName("Ошибка при добавлении товара в корзину неавторизованным пользователем")
-    void addToCartByNotAuthTest() {
+    void addToCartByNotAuthUserTest() {
         openPage(PhonesPage.class)
                 .selectPhone(phoneDto.getInfo().getName())
                 .checkPhoneName(phoneDto.getInfo().getName())

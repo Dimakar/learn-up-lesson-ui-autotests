@@ -55,10 +55,9 @@ public class ApiAuthRegisterTest {
     }
 
     @ParameterizedTest(name = "/api/auth/register: 201: успешное создание юзера с различными параметрами")
-    
     @DisplayName("/api/auth/register: 201: успешное создание юзера")
     @MethodSource("successfulCreateUserRequests")
-    void createUserTest(UserDto userDto) {
+    void successfulCreateUserTest(UserDto userDto) {
         this.userDto = new ApiAuthRegisterEndpoint().registerNewUser(userDto);
 
         SoftAssertions softAssertions = new SoftAssertions();
@@ -75,10 +74,9 @@ public class ApiAuthRegisterTest {
     }
 
     @ParameterizedTest(name = "/api/auth/register: 400: неуспешное создание юзера с различными параметрами")
-    
     @DisplayName("/api/auth/register: 400: неуспешное создание юзера")
     @MethodSource("failedCreateUserRequests")
-    void failedCreateUser400Test(UserDto userDto) {
+    void failed400CreateUserTest(UserDto userDto) {
         given()
                 .body(userDto)
                 .post(new ApiAuthRegisterEndpoint().getEndpoint())
@@ -87,9 +85,8 @@ public class ApiAuthRegisterTest {
     }
 
     @Test
-    
     @DisplayName("/api/auth/register: 409: User already exists")
-    void failedCreateUser409Test() {
+    void failed409CreateUserTest() {
         userDto = ApiTestDataHelper.createTestUserDto();
 
         given()

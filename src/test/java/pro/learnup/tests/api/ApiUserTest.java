@@ -23,22 +23,19 @@ public class ApiUserTest {
     UserDto userDto;
 
     @BeforeEach
-    @Step("Подготовка ТД")
     void setUp() {
         userDto = ApiTestDataHelper.createTestUserDto();
     }
 
     @Test
-    
     @DisplayName("/api/user: 200: получение информации о юзере авторизованным пользователем")
-    void successfulGetUserTest() {
+    void successful200GetUserTest() {
         assertThat(new ApiUserEndpoint().getUser(User.builder().token(userDto.getToken()).build()))
                 .usingRecursiveComparison()
                 .isEqualTo(userDto);
     }
 
     @AfterEach
-    @Step("Удаление ТД")
     void tearDown() {
         DbTestDataHelper.deleteUser(userDto);
     }

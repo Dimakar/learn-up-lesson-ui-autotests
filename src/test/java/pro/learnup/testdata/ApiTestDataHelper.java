@@ -1,12 +1,14 @@
 package pro.learnup.testdata;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import pro.learnup.api.dto.UserDto;
 import pro.learnup.api.endpoints.ApiAuthRegisterEndpoint;
 
 public class ApiTestDataHelper {
     static Faker faker = new Faker();
 
+    @Step("Создание юзера с рандомными параметрами")
     public static UserDto createTestUserDto() {
         return new ApiAuthRegisterEndpoint().registerNewUser(
                 UserDto.builder()
@@ -19,6 +21,7 @@ public class ApiTestDataHelper {
     }
 
 
+    @Step("Создание юзера с рандомными параметрами")
     public static User createTestUser() {
         User user = User.builder().login(faker.name().fullName())
                 .password(faker.internet().password())

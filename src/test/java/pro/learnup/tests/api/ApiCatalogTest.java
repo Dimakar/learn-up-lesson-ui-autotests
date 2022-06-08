@@ -22,15 +22,13 @@ public class ApiCatalogTest {
     List<PhoneDto> phoneDtoList;
 
     @BeforeEach
-    @Step("Подготовка ТД")
     void setUp() {
         phoneDtoList = DbTestDataHelper.getAllPhones();
     }
 
     @Test
-    
     @DisplayName("/api/catalog: 200, получение смартфонов без авторизации")
-    void getCatalogTest() {
+    void getCatalogSuccessful200Test() {
         assertThat(new ApiCatalogEndpoint().getAllPhones())
                 .containsExactlyInAnyOrderElementsOf(phoneDtoList);
     }

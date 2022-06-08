@@ -25,7 +25,6 @@ public class AuthTest {
     User user;
 
     @BeforeEach
-    @Step("Подготовка ТД")
     void setUp() {
         user = ApiTestDataHelper.createTestUser();
     }
@@ -33,14 +32,13 @@ public class AuthTest {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Успешная авторизация пользователя")
     @Test
-    public void authTest() {
+    public void authSuccessfulTest() {
         open("/", PhonesPage.class)
                 .getHeaderBlock()
                 .login(user);
     }
 
     @AfterEach
-    @Step("Удаление ТД")
     void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }

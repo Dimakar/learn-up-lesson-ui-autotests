@@ -35,7 +35,6 @@ public class ApiOrderTest {
     List<Order> orders;
 
     @BeforeAll
-    @Step("Подготовка ТД")
     static void beforeAll() {
         user = ApiTestDataHelper.createTestUser();
     }
@@ -45,22 +44,19 @@ public class ApiOrderTest {
     }
 
     @AfterAll
-    @Step("Удаление ТД")
     static void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }
 
     @BeforeEach
-    @Step("Подготовка ТД")
     void setUp() {
         orders = new ApiUserEndpoint().getUser(ApiOrderTest.user).getOrders();
     }
 
     @DisplayName("/api/order: 200: успешное оформление заказа")
     @ParameterizedTest(name = "/api/order: 200: успешное оформление заказа различных смартфонов")
-    
     @MethodSource("phones")
-    void apiOrderSuccessfulTest(PhoneDto phoneDto) {
+    void apiOrderSuccessful200Test(PhoneDto phoneDto) {
 //        parameter("Модель смартфона", phoneDto.getInfo().getName());
         Order expectedOrder = Order.builder()
                 .dateCreated(LocalDateTime.now().withNano(0))

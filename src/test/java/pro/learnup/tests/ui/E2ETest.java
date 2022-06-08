@@ -22,7 +22,6 @@ public class E2ETest {
     PhoneDto phoneDto;
 
     @BeforeEach
-    @Step("Подготовка ТД")
     void setUp() {
         user = ApiTestDataHelper.createTestUser();
         phoneDto = DbTestDataHelper.getAllPhones().get(0);
@@ -31,8 +30,7 @@ public class E2ETest {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Покупка смартфона")
     @Test
-    
-    public void buyPhoneTest() {
+    public void buyPhoneSuccessfulTest() {
         open("/", PhonesPage.class)
                 .getHeaderBlock()
                 .login(user)
@@ -48,7 +46,6 @@ public class E2ETest {
     }
 
     @AfterEach
-    @Step("Удаление ТД")
     void tearDown() {
         DbTestDataHelper.deleteUser(user.getId());
     }
