@@ -35,7 +35,11 @@ public class AuthTest {
     public void authSuccessfulTest() {
         open("/", PhonesPage.class)
                 .getHeaderBlock()
-                .login(user);
+                .clickLoginButton()
+                .inputLogin(user.getLogin())
+                .inputPassword(user.getPassword())
+                .clickSubmitButton()
+                .checkLogoutButtonIsVisible();
     }
 
     @AfterEach

@@ -24,23 +24,19 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>3.141.59</version>
     </dependency>
 
     <dependency>
@@ -50,11 +46,6 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>5.0.3</version>
-    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -68,36 +59,16 @@
       <scope>test</scope>
     </dependency>
 
-
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.25.1</version>
+      <version>6.5.2</version>
     </dependency>
+
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-selenide</artifactId>
       <version>${allure.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.browserup</groupId>
-      <artifactId>browserup-proxy-core</artifactId>
-      <version>2.1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.22</version>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>7.2.3</version>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
-      <version>7.2.3</version>
     </dependency>
 
     <dependency>
@@ -106,6 +77,7 @@
       <version>4.3.0</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
@@ -123,21 +95,31 @@
       <version>3.12.10</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
     <dependency>
       <groupId>org.aeonbits.owner</groupId>
       <artifactId>owner</artifactId>
       <version>1.0.12</version>
     </dependency>
-
-
-
-    <!--    <dependency>-->
-<!--      <groupId>io.qameta.allure</groupId>-->
-<!--      <artifactId>allure-assertj</artifactId>-->
-<!--      <version>${allure.version}</version>-->
-<!--    </dependency>-->
-
+    <dependency>
+      <groupId>org.selenide</groupId>
+      <artifactId>selenide-selenoid</artifactId>
+      <version>2.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.13.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.13.3</version>
+    </dependency>
 
 
   </dependencies>

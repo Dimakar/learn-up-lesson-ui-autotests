@@ -35,8 +35,9 @@ public class UiTestsExt implements AfterEachCallback, BeforeAllCallback {
                 .enableLogs(LogType.SERVER, Level.ALL));
         Configuration.baseUrl = config.baseUrl();
         Configuration.timeout = config.timeout();
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (config.selenoidUrl() != null) {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
             capabilities.setCapability("enableVNC", config.enableVNC());
             capabilities.setCapability("enableVideo", config.enableVideo());
             capabilities.setCapability("sessionTimeout", "20m");
@@ -45,10 +46,11 @@ public class UiTestsExt implements AfterEachCallback, BeforeAllCallback {
                     "LANGUAGE=ru:RU",
                     "LC_ALL=ru_RU.UTF-8"));
             Configuration.remote = config.selenoidUrl();
+            Configuration.browser = config.browser();
+            Configuration.browserVersion = config.browserVersion();
+            Configuration.browserCapabilities = capabilities;
         }
-        Configuration.browserCapabilities = capabilities;
         Configuration.browserSize = "1366x768";
-        Configuration.browser = config.browser();
-        Configuration.browserVersion = config.browserVersion();
+
     }
 }
