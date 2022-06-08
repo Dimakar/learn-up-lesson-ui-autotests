@@ -65,7 +65,7 @@ public class AddToCartTest {
     }
 
     @Test
-    @AllureId("750")
+    
     @DisplayName("Ошибка при добавлении товара в корзину неавторизованным пользователем")
     void addToCartByNotAuthTest() {
         openPage(PhonesPage.class)

@@ -58,7 +58,7 @@ public class ApiOrderTest {
 
     @DisplayName("/api/order: 200: успешное оформление заказа")
     @ParameterizedTest(name = "/api/order: 200: успешное оформление заказа различных смартфонов")
-    @AllureId("746")
+    
     @MethodSource("phones")
     void apiOrderSuccessfulTest(PhoneDto phoneDto) {
 //        parameter("Модель смартфона", phoneDto.getInfo().getName());

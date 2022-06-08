@@ -28,7 +28,7 @@ public class ApiCatalogTest {
     }
 
     @Test
-    @AllureId("744")
+    
     @DisplayName("/api/catalog: 200, получение смартфонов без авторизации")
     void getCatalogTest() {
         assertThat(new ApiCatalogEndpoint().getAllPhones())

@@ -31,7 +31,7 @@ public class E2ETest {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Покупка смартфона")
     @Test
-    @AllureId("751")
+    
     public void buyPhoneTest() {
         open("/", PhonesPage.class)
                 .getHeaderBlock()

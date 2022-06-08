@@ -29,7 +29,7 @@ public class ApiUserTest {
     }
 
     @Test
-    @AllureId("745")
+    
     @DisplayName("/api/user: 200: получение информации о юзере авторизованным пользователем")
     void successfulGetUserTest() {
         assertThat(new ApiUserEndpoint().getUser(User.builder().token(userDto.getToken()).build()))

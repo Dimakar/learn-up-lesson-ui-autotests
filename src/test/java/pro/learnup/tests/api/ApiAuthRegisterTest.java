@@ -55,7 +55,7 @@ public class ApiAuthRegisterTest {
     }
 
     @ParameterizedTest(name = "/api/auth/register: 201: успешное создание юзера с различными параметрами")
-    @AllureId("743")
+    
     @DisplayName("/api/auth/register: 201: успешное создание юзера")
     @MethodSource("successfulCreateUserRequests")
     void createUserTest(UserDto userDto) {
@@ -75,7 +75,7 @@ public class ApiAuthRegisterTest {
     }
 
     @ParameterizedTest(name = "/api/auth/register: 400: неуспешное создание юзера с различными параметрами")
-    @AllureId("741")
+    
     @DisplayName("/api/auth/register: 400: неуспешное создание юзера")
     @MethodSource("failedCreateUserRequests")
     void failedCreateUser400Test(UserDto userDto) {
@@ -87,7 +87,7 @@ public class ApiAuthRegisterTest {
     }
 
     @Test
-    @AllureId("742")
+    
     @DisplayName("/api/auth/register: 409: User already exists")
     void failedCreateUser409Test() {
         userDto = ApiTestDataHelper.createTestUserDto();
