@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import io.qameta.allure.selenide.LogType;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
@@ -13,6 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pro.learnup.config.TestConfig;
 
 import java.util.List;
+import java.util.logging.Level;
 
 public class UiTestsExt implements AfterEachCallback, BeforeAllCallback {
 
@@ -26,7 +28,11 @@ public class UiTestsExt implements AfterEachCallback, BeforeAllCallback {
     @Override
     public void beforeAll(ExtensionContext extensionContext) throws Exception {
         TestConfig config = ConfigFactory.create(TestConfig.class);
-        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true).savePageSource(true));
+        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true)
+                .savePageSource(true)
+                .includeSelenideSteps(false)
+                .enableLogs(LogType.BROWSER, Level.ALL)
+                .enableLogs(LogType.SERVER, Level.ALL));
         Configuration.baseUrl = config.baseUrl();
         Configuration.timeout = config.timeout();
         DesiredCapabilities capabilities = new DesiredCapabilities();
